@@ -1,6 +1,6 @@
 {
-  "name": "bit-oasis",
-  "version": "0.0.0",
+  "name": "ng-live-data",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

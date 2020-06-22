@@ -16,16 +16,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'bit-oasis'`, () => {
+  it(`should have as title 'ng-live-data'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('bit-oasis');
+    expect(app.title).toEqual('ng-live-data');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('bit-oasis app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('ng-live-data app is running!');
   });
 });

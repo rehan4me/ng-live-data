@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "bit-oasis": {
+    "ng-live-data": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/bit-oasis",
+            "outputPath": "dist/ng-live-data",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -62,18 +62,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "bit-oasis:build"
+            "browserTarget": "ng-live-data:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "bit-oasis:build:production"
+              "browserTarget": "ng-live-data:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "bit-oasis:build"
+            "browserTarget": "ng-live-data:build"
           }
         },
         "test": {
@@ -110,18 +110,18 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "bit-oasis:serve"
+            "devServerTarget": "ng-live-data:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "bit-oasis:serve:production"
+              "devServerTarget": "ng-live-data:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "bit-oasis",
+  "defaultProject": "ng-live-data",
   "cli": {
     "analytics": false
   }
