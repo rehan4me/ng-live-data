@@ -1,0 +1,22 @@
+<div class="wrapper">
+  <header class="header">
+    <img height="30" alt="Angular Logo" src="../assets/logo.svg" />
+  </header>
+  <div class="main">
+    <div class="content-1">
+        <h1>Buy, Sell and Trade in the Middle East</h1>
+        <p>Trading and using digital assets made <strong>easier</strong>, <strong>cheaper</strong>, and more <strong>secure</strong></p>
+    </div>
+    <div class="content-2">
+      <app-ticker [tickerdata]="remoteData | async"></app-ticker>
+    </div>
+  </div>
+  
+  <div class="sidenav">
+    <ul class="navigation">
+      <li><a href="javascript:;" (click)="ngAfterViewInit()">Start Live Data</a></li>
+      <li><a href="javascript:;" (click)="bitService.closeSocketConnection()">Stop Live Data</a></li>
+    </ul>
+
+  </div>
+</div>
