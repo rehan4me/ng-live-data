@@ -1,22 +1,57 @@
 <div class="wrapper">
+  <!-- Header-->
   <header class="header">
     <img height="30" alt="Angular Logo" src="../assets/logo.svg" />
   </header>
+  <!-- Header-->
+
   <div class="main">
+
+    <!-- Content 1-->
     <div class="content-1">
-        <h1>Buy, Sell and Trade in the Middle East</h1>
-        <p>Trading and using digital assets made <strong>easier</strong>, <strong>cheaper</strong>, and more <strong>secure</strong></p>
+      <h1>Buy, Sell and Trade in the Middle East</h1>
+      <p>Trading and using digital assets made <strong>easier</strong>, <strong>cheaper</strong>, and more
+        <strong>secure</strong></p>
     </div>
+    <!-- Content 1-->
+
+    <!-- Content 2 scrollable-->
     <div class="content-2">
-      <app-ticker [tickerdata]="remoteData | async"></app-ticker>
+
+      <!-- Default ticker component -->
+      <app-ticker [style.display]="isDefaultTicker ? 'block' : 'none'" [tickerdata]="remoteData | async"></app-ticker>
+      <!-- Default ticker component -->
+
+      <!-- Custom ticker component -->
+      <app-custom-ticker [style.display]="isDefaultTicker ? 'none' : 'block'" [tickerdata]="remoteData | async">
+        <ng-template appCustomTicker let-tickerdata="tickerdata" let-tickerDataLabel="tickerDataLabel">
+          <div class="list title"><span><strong>CUSTOM TICKER COMPONENT</strong></span></div>
+          <ng-container *ngIf="tickerdata.length > 1">
+            <div *ngFor="let data of tickerdata[2]; let i = index" class="list">
+              <div class="list-item">{{ tickerDataLabel[i] }}</div>
+              <div class="list-item" [ngSwitch]="tickerDataLabel[i]">
+                <span *ngSwitchCase="'CURRENCY PAIR ID'">{{data}}</span>
+                <span *ngSwitchCase="'FROZEN'">{{data ? 'Yes' : 'No'}}</span>
+                <span appMarketDirection *ngSwitchCase="'PERCENTAGE CHANGE in last 24 HOURS'"
+                  [innerHtml]="data | number: '1.2-2'"></span>
+                <span *ngSwitchDefault>{{data | number: '1.2-2'}}</span>
+              </div>
+            </div>
+          </ng-container>
+        </ng-template>
+      </app-custom-ticker>
+      <!-- Custom ticker component -->
+      
     </div>
+    <!-- Content 2 scrollable-->
   </div>
-  
+
+  <!-- Side Navigation -->
   <div class="sidenav">
     <ul class="navigation">
-      <li><a href="javascript:;" (click)="ngAfterViewInit()">Start Live Data</a></li>
-      <li><a href="javascript:;" (click)="bitService.closeSocketConnection()">Stop Live Data</a></li>
+      <li><a href="javascript:;" (click)="isDefaultTicker = true">Default Ticker Component</a></li>
+      <li><a href="javascript:;" (click)="isDefaultTicker = false">Custom Ticker Component</a></li>
     </ul>
-
   </div>
+  <!-- Side Navigation -->
 </div>

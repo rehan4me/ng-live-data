@@ -1,10 +1,12 @@
-<ng-container *ngIf="tickerdata">
+<div class="list title"><span><strong>DEFAULT TICKER COMPONENT</strong></span></div>
+<ng-container *ngIf="isArray(tickerdata)">
     <div *ngFor="let data of tickerdata[2]; let i = index" class="list">
         <div class="list-item">{{ tickerDataLabel[i] }}</div>
-        <div class="list-item" [ngSwitch]= "tickerDataLabel[i]">
+        <div class="list-item" [ngSwitch]="tickerDataLabel[i]">
             <span *ngSwitchCase="'CURRENCY PAIR ID'">{{data}}</span>
             <span *ngSwitchCase="'FROZEN'">{{data ? 'Yes' : 'No'}}</span>
-            <span appMarketDirection *ngSwitchCase="'PERCENTAGE CHANGE in last 24 HOURS'" [innerHtml]="data | number: '1.2-2'"></span>
+            <span appMarketDirection *ngSwitchCase="'PERCENTAGE CHANGE in last 24 HOURS'"
+                [innerHtml]="data | number: '1.2-2'"></span>
             <span *ngSwitchDefault>{{data | number: '1.2-2'}}</span>
         </div>
     </div>

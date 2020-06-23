@@ -1,7 +1,6 @@
 import { Component, ChangeDetectionStrategy, AfterViewInit, OnDestroy } from '@angular/core';
 import { BitService } from './service/bit.service';
 import { tap, catchError } from 'rxjs/operators';
-import { TickerData } from './model/ticker.data';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +11,7 @@ import { TickerData } from './model/ticker.data';
 
 export class AppComponent implements AfterViewInit, OnDestroy {
 
+  isDefaultTicker = true;
   remoteData = this.bitService.messages.pipe(
     tap({
       error: error => console.log('Error:', error),
@@ -20,7 +20,7 @@ export class AppComponent implements AfterViewInit, OnDestroy {
     catchError(error => { throw error; })
   );
 
-  constructor(public bitService: BitService) {}
+  constructor(public bitService: BitService) { }
 
   ngAfterViewInit() {
     this.bitService.connect();

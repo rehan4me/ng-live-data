@@ -11,4 +11,8 @@ export class TickerComponent {
   @Input() tickerdata: TickerData;
   tickerDataLabel = TickerDataLabel;
 
+  isArray(input: any) {
+    return Array.isArray(input);
+  }
+
 }

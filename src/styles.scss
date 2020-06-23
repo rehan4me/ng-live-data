@@ -53,7 +53,7 @@ body {
       border-top: 1px solid #e9ecef;
     }
 
-    @media all and (max-width: 600px) {
+    @media all and (max-width: 768px) {
       .content-2 { max-height: 300px;}
     }
   }
@@ -79,7 +79,7 @@ body {
         background: #daf2ef;
       }
 
-      @media all and (max-width: 600px) {
+      @media all and (max-width: 768px) {
         a {
           border-top: 1px solid rgba(0, 0, 0, 0.1);
         }
@@ -88,7 +88,7 @@ body {
   }
 
 
-  @media all and (min-width: 600px) {
+  @media all and (min-width: 768px) {
     .sidenav { 
       max-width: 300px;
       height: calc(100vh - 80px);
@@ -96,7 +96,7 @@ body {
     }
   }
 
-  @media all and (min-width: 800px) {
+  @media all and (min-width: 768px) {
     .main    { flex: 3 0px; }
     .sidenav { order: 1; } 
     .main    { order: 2; }
@@ -116,6 +116,11 @@ body {
   justify-content: space-between;
   margin: auto;
   font-weight: 500;
+}
+
+.title {
+  background-color: #40a795;
+  color: #fff;
 }
 
 .upArrow {
